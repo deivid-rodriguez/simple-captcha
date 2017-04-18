@@ -1,8 +1,13 @@
 if defined? Formtastic
   require 'test_helper'
   class FormtasticTest  < ActionDispatch::IntegrationTest
-    self.use_transactional_fixtures = false
     include Capybara::DSL
+
+    if Rails::VERSION::MAJOR >= 5
+      self.use_transactional_tests = false
+    else
+      self.use_transactional_fixtures = false
+    end
 
     setup do
       SimpleCaptcha.always_pass = false

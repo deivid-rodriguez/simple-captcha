@@ -3,7 +3,12 @@ require 'simple_captcha/controller'
 
 class FormHelperTest  < ActionDispatch::IntegrationTest
   include Capybara::DSL
-  self.use_transactional_fixtures = false
+
+  if Rails::VERSION::MAJOR >= 5
+    self.use_transactional_tests = false
+  else
+    self.use_transactional_fixtures = false
+  end
 
   setup do
     SimpleCaptcha.always_pass = false
