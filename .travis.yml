@@ -22,8 +22,6 @@ matrix:
     - rvm: ruby-head
 
 before_script:
-  # - mysql -e 'create database myapp_test'
-  # - psql -c 'create database myapp_test' -U postgres
   - bundle exec rake dummy:setup
   - bundle exec rake app:db:create
   - bundle exec rake app:db:migrate
