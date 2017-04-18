@@ -17,6 +17,6 @@ class SimpleCaptchaGenerator < Rails::Generators::Base
   end
 
   def create_captcha_migration
-    migration_template "migration.rb", File.join('db/migrate', "create_simple_captcha_data.rb")
+    migration_template "migration.rb.erb", File.join('db/migrate', "create_simple_captcha_data.rb")
   end
 end
