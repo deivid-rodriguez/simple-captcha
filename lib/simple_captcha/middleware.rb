@@ -93,7 +93,7 @@ module SimpleCaptcha
         request = Rack::Request.new(env)
 
         request.session.delete :captcha
-        key = simple_captcha_key(nil, request)
+        key = simple_captcha_key(nil, request.session)
         options = {}
         options[:field_value] = set_simple_captcha_data(key, options)
         url = simple_captcha_image_url(key, options)
